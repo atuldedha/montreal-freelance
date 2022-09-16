@@ -94,7 +94,7 @@
   outline: none;
   align-self: flex-end;
 }
-.submitBtn {
+.submitBtn:disabled {
 
   background-color: var(--gray);
   cursor: not-allowed;
