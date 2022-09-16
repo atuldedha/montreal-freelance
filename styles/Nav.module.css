@@ -1,0 +1,47 @@
+.nav {
+  background-color: var(--primary);
+  color: var(--nav-font);
+  font-size: var(--font-xs);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5em;
+}
+
+.logo {
+  background-color: var(--white-1);
+  max-width: 40%;
+  flex: 1;
+  height: 100%;
+}
+
+.logoImage {
+  top: 0.625em !important;
+  margin-top: 1.875em;
+}
+
+.menu {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.button {
+  background-color: var(--primary);
+  color: var(--nav-font);
+  border: 0.063em solid var(--nav-font);
+  border-radius: 3.125em;
+  padding: 0.375em 1.25em;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+/* @media screen and (max-width: 1000px) {
+    .logo {
+        max-width: 20%;
+    }
+
+} */

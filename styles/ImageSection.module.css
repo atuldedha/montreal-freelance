@@ -1,0 +1,79 @@
+.container {
+  margin: 5em auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 78.125em;
+  padding: 0 3.75em;
+  column-gap: 5.625em;
+}
+
+.imageWrapper {
+  position: relative;
+  object-fit: fill;
+  width: 33.125em;
+  height: 31.25em;
+}
+
+.imageWrapper img {
+  border-radius: 1.875em;
+  aspect-ratio: 1/1;
+}
+
+.border1 {
+  position: absolute;
+  border-radius: 1.875em;
+  width: 85%;
+  height: 85%;
+  border: 0.25em solid var(--yellow-200);
+  top: -3%;
+  left: -4%;
+}
+
+.border2 {
+  position: absolute;
+  border-radius: 1.875em;
+  width: 85%;
+  height: 85%;
+  border: 0.25em solid var(--yellow-200);
+  bottom: -3%;
+  right: -4%;
+}
+
+.contentWrapper {
+  max-width: 25em;
+  justify-self: right;
+}
+
+.contentHeading {
+  font-family: var(--font-inter);
+  font-size: var(--font-xxxl);
+  font-weight: 500;
+  margin: 0.313em 0;
+}
+
+.listStyle {
+  background-image: url(/list.svg);
+  position: absolute;
+  top: 0.938em;
+  left: -2.813em;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 2.5em;
+  height: 0.188em;
+  background-size: cover;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 0.313em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+.list p {
+  margin-top: 0.188em;
+  margin-bottom: 0.188em;
+}

@@ -1,0 +1,55 @@
+.container {
+  background-color: var(--dark-gray);
+  color: var(--nav-font);
+  padding: 6.25em 0 1.25em 0;
+}
+
+.heading {
+  font-family: var(--font-inter);
+  font-size: var(--font-medium);
+  font-weight: 600;
+  text-align: center;
+}
+
+.eventDate {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-size: var(--font-xl);
+  text-align: center;
+  line-height: 0.125em;
+}
+
+.eventSpan {
+  color: var(--yellow-200);
+}
+
+.followUsHeading {
+  font-family: var(--font-inter);
+  font-size: var(--font-lg);
+  text-align: center;
+}
+
+.socialWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.25em;
+  column-gap: 0.625em;
+}
+
+.icon {
+  color: white;
+  width: 1.75em;
+  height: 1.75em;
+  padding: 0;
+  margin: 0;
+  fill: aqua;
+}
+
+.copyright {
+  font-family: var(--font-inter);
+  font-size: var(--font-sm);
+  text-align: center;
+  margin-top: 1.25em;
+  color: var(--gray);
+}

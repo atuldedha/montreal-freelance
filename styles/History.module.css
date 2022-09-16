@@ -1,0 +1,8 @@
+.textContainer {
+  font-family: var(--font-inter);
+  max-width: 56.25em;
+  margin: 10.625em auto;
+  font-weight: 400;
+  font-size: var(--font-lg);
+  text-align: center;
+}

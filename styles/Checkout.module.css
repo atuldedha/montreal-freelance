@@ -1,0 +1,151 @@
+.formContainer {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+}
+.formContainer>input{
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 1px solid var(--dark-gray);
+    border-radius: 5px;
+    background-color: transparent;
+    outline: none;
+}
+
+.formGroup {
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+    border: 1px solid var(--dark-gray);
+    height: 50px;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.formGroup label {
+    justify-self: center;
+    width: 50px;
+    height: 100%;
+    border-right: 1px solid var(--dark-gray);
+    text-align: center;
+    padding-top: 10px;
+}
+
+.input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding-left: 10px;
+}
+
+.valuesContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.value {
+    min-width: 70px;
+    height: 40px;
+    font-family: var(--font-inter);
+    font-weight: 400;
+    font-size: var(--font-sm);
+    color: var(--dark-gray);
+    padding: 0 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid var(--dark-gray);
+}
+
+.valueSelected {
+    min-width: 70px;
+    height: 40px;
+    font-family: var(--font-inter);
+    font-weight: 400;
+    font-size: var(--font-sm);
+    color: var(--dark-gray);
+    background-color: var(--primary);
+    padding: 0 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    border: 1px solid var(--dark-gray);
+    color: var(--nav-font);
+}
+
+.custom {
+    min-width: 120px;
+    height: 40px;
+    font-family: var(--font-inter);
+    font-weight: 400;
+    font-size: var(--font-normal);
+    color: var(--dark-gray);
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid var(--dark-gray);
+}
+
+.customSelected {
+    min-width: 120px;
+    height: 40px;
+    font-family: var(--font-inter);
+    font-weight: 400;
+    font-size: var(--font-normal);
+    color: var(--dark-gray);
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid var(--dark-gray);
+    background-color: var(--primary);
+    color: var(--nav-font);
+}
+
+.button {
+    background-color: var(--primary-100);
+    color: var(--white-1);
+    width: max-content;
+    border: none;
+    font-weight: 500;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+    margin: 30px auto;
+}
+.button:disabled {
+    background-color: var(--gray);
+    cursor: not-allowed;
+}
+
+.card{
+    width: 100%;
+    height: 50px;
+    padding: 15px 20px 20px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--dark-gray);
+    font-weight: 100;
+}
+.checkbox{
+    margin-right: 10px;
+    cursor: pointer;
+    
+}
+
+.countryDropdown{
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+    padding: 0 10px;
+    border: 1px solid var(--dark-gray);
+    border-radius: 5px;
+    background-color: transparent;
+    outline: none;
+}

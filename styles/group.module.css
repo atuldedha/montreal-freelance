@@ -1,0 +1,115 @@
+.container {
+  max-width: 56.25em;
+  margin: auto;
+}
+
+.heading {
+  font-family: var(--font-inter);
+  font-size: var(--font-xxl);
+  font-weight: 500;
+  text-align: center;
+}
+
+.subheading {
+  font-family: var(--font-inter);
+  font-size: var(--font-lg);
+  font-weight: 600;
+  text-align: center;
+}
+
+.opportunityHeading {
+  font-family: var(--font-inter);
+  font-size: var(--font-xxxl);
+  color: var(--primary);
+  font-weight: 600;
+  text-align: center;
+}
+
+.opportunityGroups {
+  font-family: var(--font-inter);
+  font-size: var(--font-xxxl);
+  color: var(--nav-font);
+  font-weight: 600;
+  text-align: center;
+}
+
+.listContainer {
+  max-width: 34.375em;
+  margin: auto;
+}
+
+.listStyle {
+  background-color: var(--primary);
+  position: absolute;
+  top: 1.125em;
+  left: -2.813em;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1.875em;
+  height: 0.188em;
+  background-size: cover;
+  border-radius: 0.125em;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 0.313em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.list p {
+  margin-top: 0.188em;
+  margin-bottom: 0.188em;
+  font-size: var(--font-lg);
+}
+
+.simpleParagraph {
+  font-family: var(--font-inter);
+  font-size: var(--font-ml);
+  font-weight: 400;
+  margin: 0.625em 0;
+}
+
+.buttonVoluntier {
+  background-color: var(--primary);
+  color: var(--nav-font);
+  font-size: var(--font-sm);
+  border: none;
+  padding: 0.5em 0.938em;
+  border-radius: 3.125em;
+  display: block;
+  margin: auto;
+}
+
+.background {
+  background-color: var(--primary);
+  color: var(--nav-font);
+  padding: 2.5em 0;
+  margin-top: 2.5em;
+}
+
+.listStyleWhite {
+  background-color: white;
+  position: absolute;
+  top: 1.125em;
+  left: -2.813em;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 0.125em;
+  width: 1.875em;
+  height: 0.188em;
+  background-size: cover;
+}
+
+.button {
+  background-color: var(--nav-font);
+  font-size: var(--font-sm);
+  border: none;
+  padding: 0.5em 0.938em;
+  border-radius: 3.125em;
+  display: block;
+  margin: 1.25em auto 0 auto;
+}

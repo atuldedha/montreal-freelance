@@ -1,0 +1,22 @@
+.container {
+  background-color: var(--light-gray);
+  padding: 1.25em 0;
+  margin-top: 6.25em;
+}
+
+.sponsorHeading {
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-size: var(--font-xxl);
+  text-align: center;
+  line-height: 2.438em;
+}
+
+.imageWrapper {
+  max-width: 78.125em;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
