@@ -46,7 +46,7 @@ function NavBar() {
           >
             {locale === "en-US" ? (
               <Image
-                src="https://freesvg.org/img/tobias-Flag-of-the-United-Kingdom.png"
+                src="https://freesvg.org/img/frenchflagframed.png"
                 alt="flag"
                 width={20}
                 height={10}
@@ -54,7 +54,7 @@ function NavBar() {
               />
             ) : (
               <Image
-                src="https://freesvg.org/img/frenchflagframed.png"
+                src="https://freesvg.org/img/tobias-Flag-of-the-United-Kingdom.png"
                 alt="flag"
                 width={20}
                 height={10}

@@ -8,6 +8,7 @@
   font-size: var(--font-xxl);
   display: flex;
   justify-content: center;
+  column-gap: 0.3em;
   align-items: center;
   height: 100%;
   width: 100%;

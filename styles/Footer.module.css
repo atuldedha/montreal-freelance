@@ -1,9 +1,18 @@
 .container {
+position: relative;
   background-color: var(--dark-gray);
   color: var(--nav-font);
   padding: 6.25em 0 1.25em 0;
 }
-
+.arrow {
+  position: absolute;
+  top: 50;
+  left: 35%;
+  transform: translateX(-50%);
+  width: 5em;
+  height: 8em;
+  fill: white;
+}
 .heading {
   font-family: var(--font-inter);
   font-size: var(--font-medium);
@@ -21,6 +30,10 @@
 
 .eventSpan {
   color: var(--yellow-200);
+}
+
+.followUs{
+  margin-top: 4em;
 }
 
 .followUsHeading {
@@ -53,3 +66,4 @@
   margin-top: 1.25em;
   color: var(--gray);
 }
+

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/Footer.module.css";
 import { paradeYear } from "../components/untilLib/ParadeYear";
+import Image from "next/image";
 
 function Footer() {
   const [currentParadeYear, setCurrentParadeYear] = useState();
@@ -11,6 +12,9 @@ function Footer() {
 
   return (
     <footer className={styles.container}>
+      <div className={styles.arrow}>
+        <Image src="/arrow.svg" layout="fill" alt="arrow" />
+      </div>
       <h6 className={styles.heading}>We look forward to see you all </h6>
       <p className={styles.eventDate}>
         JULY 1st <span className={styles.eventSpan}>{currentParadeYear}</span>

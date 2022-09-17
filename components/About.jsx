@@ -7,7 +7,7 @@ function About() {
     <div className={styles.container}>
       <div className={styles.lightBackground} />
       <h1 className={styles.heading}>
-        About the{" "}
+        About the
         <span className={styles.headingSpan}>
           <span> </span> Montreal Canada Day Parade <span> </span>{" "}
         </span>{" "}
