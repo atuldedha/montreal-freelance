@@ -4,8 +4,16 @@ import Hero from "../components/Hero";
 import styles from "../styles/Contact.module.css";
 import { BsArrowLeft } from "react-icons/bs";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useRouter } from "next/router";
+import en from "../locales/en";
+import fr from "../locales/fr";
+import Head from "next/head";
 
 function Contact() {
+  const router = useRouter();
+  const { locale } = router;
+
+  const t = locale === "en-US" ? en : fr;
   const [value, setValue] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -15,25 +23,27 @@ function Contact() {
   }
   return (
     <div>
+      <Head>
+        <title>{t.contact.title}</title>
+      </Head>
       <Hero
-        title="Contact"
-        subtitle="If you want to know anything just contact us"
+        title={t.contact.title}
+        subtitle={t.contact.subtitle}
         image="/contact.png"
+        alt={t.contact.title}
       />
       <Event />
 
       <div className={styles.container}>
         <div className={styles.formContainer}>
-          <h4 className={styles.heading}>
-            For detailed Information Fill out the form
-          </h4>
+          <h4 className={styles.heading}>{t.contact.form.heading}</h4>
           <form className={styles.form}>
             <div className={styles.formGroup}>
               <input
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Full Name*"
+                placeholder={`${t.contact.form.name} *`}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -43,14 +53,14 @@ function Contact() {
                 type="email"
                 name="email"
                 id="email"
-                placeholder="Email*"
+                placeholder={`${t.contact.form.email} *`}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className={styles.formGroup}>
               <textarea
-                placeholder="Message*"
+                placeholder={`${t.contact.form.message} *`}
                 name="message"
                 id="message"
                 cols="30"
@@ -73,29 +83,17 @@ function Contact() {
               disabled={!name || !email || !message || !value}
               className={styles.submitBtn}
             >
-              Submit
+              {t.contact.form.btn}
             </button>
           </form>
         </div>
         <div className={styles.contentContainer}>
-          <div>
-            <h4 className={styles.contactHeading}>Partner</h4>
-            <p className={styles.contactText}>
-              You would like to become a partner? Contact the Main Organizer,
-              Nicholas Cowen, by e-mail.
-              <BsArrowLeft style={{ paddingTop: "2px" }} /> I'll put a specific
-              e-mail
-            </p>
-          </div>
-          <div>
-            <h4 className={styles.contactHeading}>Press</h4>
-            <p className={styles.contactText}>
-              Are you part of the press and want additional information about
-              the event? Contact managing director, Caroline Polcsak, by e-mail.
-              <BsArrowLeft style={{ paddingTop: "2px" }} /> I'll put a specific
-              e-mail
-            </p>
-          </div>
+          {t.contact.options.map((item, index) => (
+            <div>
+              <h4 className={styles.contactHeading}>{item.title}</h4>
+              <p className={styles.contactText}>{item.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

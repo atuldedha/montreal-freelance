@@ -35,7 +35,8 @@
 }
 
 .company {
-  width: 10em;
+  min-width: 10em;
+  padding: 0 1em;
   height: 2.813em;
   background-color: var(--btn-bg);
   color: var(--nav-font);
@@ -47,7 +48,8 @@
 }
 
 .companySelected {
-  width: 10em;
+  min-width: 10em;
+    padding: 0 1em;
   height: 2.813em;
   background-color: var(--primary);
   color: var(--nav-font);

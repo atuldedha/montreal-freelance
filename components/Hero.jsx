@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import styles from "../styles/Hero.module.css";
 
-function Hero({ title, subtitle, image, alt, btn }) {
+function Hero({ title, subtitle, image, alt, btn, btnText }) {
   return (
     <div className={styles.container}>
       {/* content  */}
@@ -36,7 +36,7 @@ function Hero({ title, subtitle, image, alt, btn }) {
                   fill="white"
                 />
               </svg>
-              Donate Now
+              {btnText}
             </a>
           </Link>
         )}

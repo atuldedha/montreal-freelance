@@ -5,6 +5,8 @@ import Hero from "../../components/Hero";
 import Event from "../../components/Event";
 import Sponsors from "../../components/Sponsors";
 import { useRouter } from "next/router";
+import en from "../../locales/en";
+import fr from "../../locales/fr";
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
@@ -35,6 +37,9 @@ export async function getServerSideProps({ query }) {
 }
 function Thanks({ data }) {
   const router = useRouter();
+  const { locale } = router;
+
+  const t = locale === "en-US" ? en : fr;
 
   const [selected, setSelected] = useState(null);
   const [imgUrl, setImageUrl] = useState(null);
@@ -47,21 +52,23 @@ function Thanks({ data }) {
   return (
     <div>
       <Head>
-        <title>Thank You</title>
+        <title>{t.thankYou.title}</title>
       </Head>
       <div>
         <Hero
-          title="Donations"
-          subtitle="Donate with us"
+          title={t.donate.title}
+          subtitle={t.donate.subtitle}
           image="/donation.png"
-          alt="Donation"
+          alt={t.donate.title}
         />
         <Event />
         <div className={styles.container}>
-          <h2 className={styles.heading}>Donation done successfully</h2>
+          <h2 className={styles.heading}>{t.thankYou.form.title}</h2>
           <div className={styles.subHeading}>
-            <p>Upload your company logo</p>
-            <p className={styles.dimensions}>Dimension 80*80</p>
+            <p>{t.thankYou.form.subtitle}</p>
+            <p className={styles.dimensions}>
+              {t.thankYou.form.dimensions} 80*80
+            </p>
           </div>
 
           <form>
@@ -108,7 +115,7 @@ function Thanks({ data }) {
                 type="submit"
                 onClick={handleSave}
               >
-                Save
+                {t.thankYou.form.btn}
               </button>
             </div>
           </form>

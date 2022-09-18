@@ -2,8 +2,16 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/Footer.module.css";
 import { paradeYear } from "../components/untilLib/ParadeYear";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import en from "../locales/en";
+import fr from "../locales/fr";
 
 function Footer() {
+  const router = useRouter();
+  const { locale } = router;
+
+  const t = locale === "en-US" ? en : fr;
+
   const [currentParadeYear, setCurrentParadeYear] = useState();
   useEffect(() => {
     // sets the parade year depending on the month
@@ -15,12 +23,13 @@ function Footer() {
       <div className={styles.arrow}>
         <Image src="/arrow.svg" layout="fill" alt="arrow" />
       </div>
-      <h6 className={styles.heading}>We look forward to see you all </h6>
+      <h6 className={styles.heading}> {t.footer.title}</h6>
       <p className={styles.eventDate}>
-        JULY 1st <span className={styles.eventSpan}>{currentParadeYear}</span>
+        {t.footer.date}{" "}
+        <span className={styles.eventSpan}>{currentParadeYear}</span>
       </p>
       <div className={styles.followUs}>
-        <p className={styles.followUsHeading}>Follow Us for more updates</p>
+        <p className={styles.followUsHeading}>{t.footer.followText}</p>
         <div className={styles.socialWrapper}>
           <a href="https://www.facebook.com/Montreal.Canada.Day.Parade/">
             <svg
@@ -89,10 +98,7 @@ function Footer() {
           </a>
         </div>
       </div>
-      <p className={styles.copyright}>
-        Copyright © {new Date().getFullYear()} Montreal Canada Day Parade - All
-        rights reserved
-      </p>
+      <p className={styles.copyright}>{t.footer.copyright}</p>
     </footer>
   );
 }

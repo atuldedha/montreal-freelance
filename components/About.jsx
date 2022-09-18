@@ -1,17 +1,25 @@
 import Image from "next/image";
 import React from "react";
 import styles from "../styles/About.module.css";
+import { useRouter } from "next/router";
+import en from "../locales/en";
+import fr from "../locales/fr";
 
 function About() {
+  const router = useRouter();
+  const { locale } = router;
+
+  const t = locale === "en-US" ? en : fr;
+
   return (
     <div className={styles.container}>
       <div className={styles.lightBackground} />
       <h1 className={styles.heading}>
-        About the
+        {t.aboutEvent.title1}
         <span className={styles.headingSpan}>
-          <span> </span> Montreal Canada Day Parade <span> </span>{" "}
+          <span> </span> {t.aboutEvent.title2} <span> </span>{" "}
         </span>{" "}
-        Event
+        {t.aboutEvent.title3}
       </h1>
       <div className={styles.contentWrapper}>
         <div className={styles.imageWrapper}>
@@ -27,23 +35,12 @@ function About() {
           <div className={styles.border} />
         </div>
         <div className={styles.content}>
-          <div className={styles.options}>
-            <h4>Family Friendly</h4>
-            <p>
-              Bring your whole family to celebrate our great country’s birthday.
-            </p>
-          </div>
-          <div className={styles.options}>
-            <h4>Multiculture</h4>
-            <p>
-              Our country’s diversity is one of its main strength, come see the
-              world colors
-            </p>
-          </div>
-          <div className={styles.options}>
-            <h4>Free Activities</h4>
-            <p>Free activities and shows for whole family</p>
-          </div>
+          {t.aboutEvent.options.map((option, index) => (
+            <div key={index} className={styles.options}>
+              <h4>{option.title}</h4>
+              <p>{option.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -6,9 +6,14 @@ import { CountryDropdown } from "react-country-region-selector";
 import { useRouter } from "next/router";
 
 import styles from "../styles/Checkout.module.css";
+import en from "../locales/en";
+import fr from "../locales/fr";
 
 const CheckoutForm = ({ price, selected, setSelected }) => {
   const router = useRouter();
+  const { locale } = router;
+
+  const t = locale === "en-US" ? en : fr;
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
 
@@ -22,6 +27,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
   const [isAnonymous, setIsAnonymous] = useState(false);
 
   const stripe = useStripe();
+
   const elements = useElements();
   const [value, setValue] = useState(null);
 
@@ -175,6 +181,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
     iconStyle: "solid",
     style: iframeStyles,
     hidePostalCode: true,
+    placeholder: "Card Details",
   };
 
   return (
@@ -182,10 +189,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
       {selected.type && (
         <form onSubmit={handleFormSubmit} className={styles.formContainer}>
           {selected.type === "company" && (
-            <p className={styles.companyInfo}>
-              If you donate 100$ then you can upload your company logo after
-              donation that will be shown in sponsors section
-            </p>
+            <p className={styles.companyInfo}>{t.donate.form.companyNote}</p>
           )}
           <input
             onChange={(e) => {
@@ -195,7 +199,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
             type="text"
             name="name"
             required={isAnonymous ? false : true}
-            placeholder="Name on card"
+            placeholder={t.donate.form.name}
           />
           {selected.type === "company" && (
             <input
@@ -206,7 +210,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
               type="text"
               name="company"
               required={isAnonymous ? false : true}
-              placeholder="Company Name"
+              placeholder={t.donate.form.company}
             />
           )}
           <input
@@ -217,7 +221,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
             required
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder={t.donate.form.email}
           />
           <input
             onChange={(e) => {
@@ -227,7 +231,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
             required={isAnonymous ? false : true}
             type="address"
             name="address"
-            placeholder="Address"
+            placeholder={t.donate.form.address}
           />
           <CountryDropdown
             value={country}
@@ -243,7 +247,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
             type="text"
             required={isAnonymous ? false : true}
             name="city"
-            placeholder="City"
+            placeholder={t.donate.form.city}
           />
           <input
             onChange={(e) => {
@@ -253,7 +257,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
             type="text"
             required={isAnonymous ? false : true}
             name="zip"
-            placeholder="Zip"
+            placeholder={t.donate.form.zip}
           />
           <div>
             <input
@@ -266,7 +270,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
               id="anonymous"
               className={styles.checkbox}
             />{" "}
-            Is Anonymous?
+            {t.donate.form.anon}
           </div>
           <div className={styles.formGroup}>
             <label className={styles.label}>$</label>
@@ -306,7 +310,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
               </button>
             ))}
           </div>
-          <h4>Card Information</h4>
+          <h4>{t.donate.form.cardInformation}</h4>
           <div className={styles.card}>
             <CardElement
               options={cardElementOpts}
@@ -341,7 +345,9 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
                 fill="white"
               />
             </svg>
-            {isProcessing ? "Processing..." : `Donate Now ${price} $ CAD`}
+            {isProcessing
+              ? "Processing..."
+              : `${t.donate.form.btn}  ${price} $ CAD`}
           </button>
         </form>
       )}

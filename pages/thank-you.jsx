@@ -4,24 +4,31 @@ import styles from "../styles/Thanks.module.css";
 import Hero from "../components/Hero";
 import Event from "../components/Event";
 import Sponsors from "../components/Sponsors";
+import { useRouter } from "next/router";
+import en from "../locales/en";
+import fr from "../locales/fr";
 
 function Successful() {
+  const router = useRouter();
+  const { locale } = router;
+
+  const t = locale === "en-US" ? en : fr;
   return (
     <div>
       <Head>
-        <title>Thank You</title>
+        <title>{t.thankYou.title}</title>
       </Head>
       <div>
         <Hero
-          title="Donations"
-          subtitle="Donate with us"
+          title={t.donate.title}
+          subtitle={t.donate.subtitle}
           image="/donation.png"
-          alt="Donation"
+          alt={t.donate.title}
         />
         <Event />
         <div className={styles.container}>
-          <h2 className={styles.heading}>Donation done successfully</h2>
-          <p className={styles.subHeading}>Thank You</p>
+          <h2 className={styles.heading}>{t.thankYou.form.title}</h2>
+          <p className={styles.subHeading}>{t.thankYou.title}</p>
           <div className={styles.icon}>
             <svg
               width="94"

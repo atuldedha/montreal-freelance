@@ -3,9 +3,14 @@ import Image from "next/image";
 import styles from "../styles/Nav.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import en from "../locales/en";
+import fr from "../locales/fr";
 function NavBar() {
   const router = useRouter();
   const { locale } = router;
+
+  const t = locale === "en-US" ? en : fr;
+
   return (
     <nav className={styles.nav}>
       {/* Logo  */}
@@ -22,7 +27,7 @@ function NavBar() {
       {/* Nav Links */}
       <div className={styles.menu}>
         <Link href="/">
-          <a>Home</a>
+          <a>{t.nav.home}</a>
         </Link>
         <div
           style={{
@@ -64,18 +69,18 @@ function NavBar() {
           </div>
         </div>
         <Link href="/information">
-          <a>Information</a>
+          <a>{t.nav.information}</a>
         </Link>
         <Link href="/group">
-          <a>Group/Volunteer</a>
+          <a>{t.nav.group}</a>
         </Link>
         <Link href="/history">
-          <a>History</a>
+          <a>{t.nav.history}</a>
         </Link>
         <Link href="/contact">
-          <a>Contact Us</a>
+          <a>{t.nav.contact}</a>
         </Link>
-        <button className={styles.button}>Sign In</button>
+        <button className={styles.button}>{t.nav.signIn}</button>
       </div>
     </nav>
   );

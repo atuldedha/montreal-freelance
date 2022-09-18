@@ -1,122 +1,84 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React from "react";
 import Event from "../components/Event";
 import Hero from "../components/Hero";
+import en from "../locales/en";
+import fr from "../locales/fr";
 import styles from "../styles/group.module.css";
 function Group() {
+  const router = useRouter();
+  const { locale } = router;
+
+  const t = locale === "en-US" ? en : fr;
   return (
     <div>
       <Head>
-        <title>Volunteers & Participants</title>
+        <title>{t.group.title}</title>
       </Head>
       <Hero
-        title="Volunteers & Groups"
-        subtitle="A special opportunity awaits you"
+        title={t.group.title}
+        subtitle={t.group.subtitle}
         image="/group.png"
-        alt="Volunteers & Groups"
+        alt={t.group.title}
       />
       <Event />
       <div className={styles.container}>
-        <h4 className={styles.heading}>
-          Are you interested in strengthening your leadership skills, building
-          new Friendships or simply haing fun while serving your community and
-          country?
-        </h4>
-        <p className={styles.subheading}>
-          We aim to incorporate “your” needs to help make the parade a success
-        </p>
+        <h4 className={styles.heading}>{t.group.section1.title}</h4>
+        <p className={styles.subheading}>{t.group.section1.subtitle}</p>
 
-        <p className={styles.opportunityHeading}>Opportunities for Volunteer</p>
+        <p className={styles.opportunityHeading}>{t.group.section2.title}</p>
         <div className={styles.listContainer}>
-          <div className={styles.list}>
-            <span className={styles.listStyle}></span>
-            <p
-              style={{
-                fontWeight: "500",
-              }}
-            >
-              Distribution of small flags and pins to public
-            </p>
-          </div>
-          <div className={styles.list}>
-            <span className={styles.listStyle}></span>
-            <p
-              style={{
-                fontWeight: "500",
-              }}
-            >
-              Park and Route helper
-            </p>
-          </div>
-          <div className={styles.list}>
-            <span className={styles.listStyle}></span>
-            <p
-              style={{
-                fontWeight: "500",
-              }}
-            >
-              Parade Line Controller
-            </p>
-          </div>
-          <p className={styles.simpleParagraph}>
-            To assist the “Supervising Parade Line Controller” to ensure that
-            the parade moves at a good pace and helps avoid gaps between
-            entries.
-          </p>
+          {
+            // map through the list of opportunities
+            t.group.section2.options.map((option, index) => (
+              <div key={index} className={styles.list}>
+                <span className={styles.listStyle}></span>
+                <p
+                  style={{
+                    fontWeight: "500",
+                  }}
+                >
+                  {option}
+                </p>
+              </div>
+            ))
+          }
+
+          <p className={styles.simpleParagraph}>{t.group.section2.text}</p>
           <p className={styles.simpleParagraph}>
             {" "}
-            <span style={{ fontWeight: 500 }}>Note:</span> There are 2 Parade
-            Line Controllers per section and a training session is given each
-            june
+            <span style={{ fontWeight: 500 }}>Note:</span>{" "}
+            {t.group.section2.note}
           </p>
 
           <button className={styles.buttonVoluntier}>
-            Register as Volunteer
+            {t.group.section2.btn}
           </button>
         </div>
       </div>
 
       <div className={styles.background}>
         <div className={styles.container}>
-          <p className={styles.opportunityGroups}>
-            Participate in the parade as a group
-          </p>
+          <p className={styles.opportunityGroups}>{t.group.section3.title}</p>
           <div className={styles.listContainer}>
-            <div className={styles.list}>
-              <span className={styles.listStyleWhite}></span>
-              <p
-                style={{
-                  fontWeight: "500",
-                }}
-              >
-                A group can consit of walkers, cars or trucks (maximum length of
-                28 ft) in the parade
-              </p>
-            </div>
-            <div className={styles.list}>
-              <span className={styles.listStyleWhite}></span>
-              <p
-                style={{
-                  fontWeight: "500",
-                }}
-              >
-                Showcase your traditional culture by music, dress, dance,
-                laughter and your Canadian flags.
-              </p>
-            </div>
-            <div className={styles.list}>
-              <span className={styles.listStyleWhite}></span>
-              <p
-                style={{
-                  fontWeight: "500",
-                }}
-              >
-                If you would like to participate in the parade to celebrate
-                Canada Day with all of us, click the button below to register.
-              </p>
-            </div>
+            {
+              // map through the list of opportunities
+              t.group.section3.options.map((option, index) => (
+                <div key={index} className={styles.list}>
+                  <span className={styles.listStyleWhite}></span>
+                  <p
+                    style={{
+                      fontWeight: "500",
+                    }}
+                  >
+                    {option}
+                  </p>
+                </div>
+              ))
+            }
 
-            <button className={styles.button}>Register your group</button>
+            <button className={styles.button}>{t.group.section3.btn}</button>
           </div>
         </div>
       </div>

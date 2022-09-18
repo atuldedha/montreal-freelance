@@ -6,8 +6,15 @@ import Event from "../components/Event";
 import Sponsors from "../components/Sponsors";
 
 import CheckoutForm from "../components/CheckoutForm";
+import { useRouter } from "next/router";
+import en from "../locales/en";
+import fr from "../locales/fr";
 
 function Donation() {
+  const router = useRouter();
+  const { locale } = router;
+
+  const t = locale === "en-US" ? en : fr;
   const [selected, setSelected] = useState({
     id: null,
     amount: 0,
@@ -17,24 +24,24 @@ function Donation() {
   return (
     <div>
       <Head>
-        <title>Donation</title>
+        <title>{t.donate.title}</title>
       </Head>
       <div>
         <Hero
-          title="Donations"
-          subtitle="Donate with us"
+          title={t.donate.title}
+          subtitle={t.donate.subtitle}
           image="/donation.png"
-          alt="Donation"
+          alt={t.donate.title}
         />
         <Event />
         <div className={styles.container}>
           <h2 className={styles.heading}>
-            Donate for Montreal
-            <span className={styles.headingSpan}>Canada Day</span> Parade
+            {t.donate.form.title1}
+            <span className={styles.headingSpan}>{t.donate.form.title2}</span>
+            {"  "}
+            {t.donate.form.title3}
           </h2>
-          <p className={styles.subHeading}>
-            Please Tell Us About yourself ? Are you a company or individual
-          </p>
+          <p className={styles.subHeading}>{t.donate.form.subtitle}</p>
 
           <div className={styles.buttonContainer}>
             <button
@@ -45,7 +52,7 @@ function Donation() {
                   : styles.company
               }
             >
-              Company
+              {t.donate.form.company}
             </button>
             <button
               onClick={() => setSelected({ ...selected, type: "individual" })}
@@ -55,7 +62,7 @@ function Donation() {
                   : styles.company
               }
             >
-              Indivdual
+              {t.donate.form.individual}
             </button>
           </div>
 

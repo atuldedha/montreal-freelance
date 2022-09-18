@@ -5,8 +5,15 @@ import Hero from "../components/Hero";
 import ImageSection from "../components/ImageSection";
 import styles from "../styles/Information.module.css";
 import { paradeYear } from "../components/untilLib/ParadeYear";
+import { useRouter } from "next/router";
+import en from "../locales/en";
+import fr from "../locales/fr";
 
 function Information() {
+  const router = useRouter();
+  const { locale } = router;
+
+  const t = locale === "en-US" ? en : fr;
   const [currentParadeYear, setCurrentParadeYear] = useState();
   useEffect(() => {
     // sets the parade year depending on the month
@@ -16,47 +23,45 @@ function Information() {
   return (
     <div>
       <Head>
-        <title>Information</title>
+        <title>{t.information.title}</title>
       </Head>
       <Hero
-        title="Information"
-        subtitle={"Montreal Canada Day Parade " + currentParadeYear + " Route "}
+        title={t.information.title}
+        subtitle={
+          t.information.subtitle + currentParadeYear + t.information.subtitle2
+        }
         image="/map.png"
       />
       <Event />
       <ImageSection
         direction={"right"}
-        title="How to get there ?"
-        paragraph={[
-          "The STM is the most effective way to get to the downtown core of Montreal. Get off at the Peel or Guy-Concordia stations on the Green Line OR the Bonaventure station on the Orange Line.",
-          "July 1st " +
-            currentParadeYear +
-            " 11:00AM, Starting at St.Catherine O. and du Fort and finishes at Place Du Canada",
-        ]}
+        title={t.information.section1.title}
+        paragraph={t.information.section1.options}
         src="/information1.png"
-        alt={"How to get there"}
+        alt={t.information.section1.title}
       />
       <ImageSection
         direction={"left"}
-        title="Activities"
-        paragraph={[
-          "Between 1:30PM and 3:30PM , there are cultural events in Place du Canada and a huge cake measuring 1.22 metres by 2.44 metres (4' by 8' ) is served. It is expected to feed 2,500 people",
-          "Face painting and charicatures for kids on site",
-          "Dance With Canada Day Ribbon Wands.",
-        ]}
+        title={t.information.section2.title}
+        paragraph={t.information.section2.options}
         src="/information2.png"
-        alt={"How to get there"}
+        alt={t.information.section2.title}
       />
       <div className={styles.container}>
         <div className={styles.background} />
         <div className={styles.content}>
-          <h4 className={styles.title}>Road Closures</h4>
+          <h4 className={styles.title}>
+            {t.information.downloadSection.title}
+          </h4>
           <p className={styles.subtitle}>
-            Please click below to see the road closures for the{" "}
-            {currentParadeYear} parade
+            {t.information.downloadSection.subtitle}
           </p>
-          <p className={styles.pdfTitle}>Canada Day Street close pdf</p>
-          <button className={styles.download}>Download</button>
+          <p className={styles.pdfTitle}>
+            {t.information.downloadSection.file}
+          </p>
+          <button className={styles.download}>
+            {t.information.downloadSection.btn}
+          </button>
         </div>
       </div>
     </div>
