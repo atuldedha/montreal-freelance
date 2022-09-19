@@ -31,7 +31,10 @@ function Footer() {
       <div className={styles.followUs}>
         <p className={styles.followUsHeading}>{t.footer.followText}</p>
         <div className={styles.socialWrapper}>
-          <a href="https://www.facebook.com/Montreal.Canada.Day.Parade/">
+          <a
+            target="_blank"
+            href="https://www.facebook.com/Montreal.Canada.Day.Parade/"
+          >
             <svg
               width="28"
               height="28"
@@ -52,7 +55,7 @@ function Footer() {
               />
             </svg>
           </a>
-          <a href="https://twitter.com/MTLCDParade">
+          <a target="_blank" href="https://twitter.com/MTLCDParade">
             <svg
               width="29"
               height="29"
@@ -73,7 +76,10 @@ function Footer() {
               />
             </svg>
           </a>
-          <a href="https://www.linkedin.com/company/montrealcanadadayparade/">
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/montrealcanadadayparade/"
+          >
             <svg
               width="29"
               height="29"
@@ -96,7 +102,10 @@ function Footer() {
               />
             </svg>
           </a>
-          <a href="https://www.youtube.com/channel/UCA2PUT_VE1Rx4c2lsSG2Mog">
+          <a
+            target="_blank"
+            href="https://www.youtube.com/channel/UCA2PUT_VE1Rx4c2lsSG2Mog"
+          >
             <svg
               width="29"
               height="29"
