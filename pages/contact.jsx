@@ -8,10 +8,13 @@ import { useRouter } from "next/router";
 import en from "../locales/en";
 import fr from "../locales/fr";
 import Head from "next/head";
+import { useWindowSize } from "../utils/WindowResizeHook";
 
 function Contact() {
   const router = useRouter();
   const { locale } = router;
+
+  const [width, height] = useWindowSize();
 
   const t = locale === "en-US" ? en : fr;
   const [value, setValue] = useState(null);
@@ -77,6 +80,7 @@ function Contact() {
               <ReCAPTCHA
                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                 onChange={onChange}
+                size={width < parseFloat("380") ? "compact" : "normal"}
               />
             </div>
             <button
@@ -89,7 +93,7 @@ function Contact() {
         </div>
         <div className={styles.contentContainer}>
           {t.contact.options.map((item, index) => (
-            <div>
+            <div key={index}>
               <h4 className={styles.contactHeading}>{item.title}</h4>
               <p className={styles.contactText}>{item.description}</p>
             </div>

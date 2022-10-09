@@ -1,9 +1,9 @@
 .container {
-  margin: 5em auto;
+  margin: 2em auto;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  max-width: 78.125em;
   padding: 0 3.75em;
   column-gap: 5.625em;
 }
@@ -11,8 +11,8 @@
 .imageWrapper {
   position: relative;
   object-fit: fill;
-  width: 33.125em;
-  height: 31.25em;
+  width: 17.5em;
+  height: 18.875em;
 }
 
 .imageWrapper img {
@@ -41,21 +41,20 @@
 }
 
 .contentWrapper {
-  max-width: 25em;
   justify-self: right;
 }
 
 .contentHeading {
   font-family: var(--font-inter);
-  font-size: var(--font-xxxl);
-  font-weight: 500;
-  margin: 0.313em 0;
+  font-size: var(--font-lg);
+  margin-bottom: 1em;
+  font-weight: 600;
 }
 
 .listStyle {
   background-image: url(/list.svg);
   position: absolute;
-  top: 0.938em;
+  top: 2.938em;
   left: -2.813em;
   background-repeat: no-repeat;
   background-position: center;
@@ -74,6 +73,47 @@
 }
 
 .list p {
-  margin-top: 0.188em;
-  margin-bottom: 0.188em;
+  margin: 2.4rem 0 0 0;
+  font-size: var(--font-sm);
+  font-weight: 400;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .listStyle {
+    top: 0.938em;
+  }
+
+  .contentHeading {
+    margin: 0.313em 0;
+  }
+
+  .contentWrapper {
+    width: 50%;
+  }
+
+  .list p {
+    margin: 0.4em 0;
+    font-weight: 300;
+  }
+  
+  .imageWrapper {
+    width: 50%;
+    height: 25em;
+    object-fit: contain;
+  }
+}
+
+@media screen and (min-width: 1200px)  {
+  .contentWrapper {
+    width: 70%;
+  }
+  .imageWrapper {
+    width: 30%;
+    height: 25em;
+    object-fit: contain;
+  }
 }

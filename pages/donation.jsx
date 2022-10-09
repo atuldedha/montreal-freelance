@@ -9,10 +9,13 @@ import CheckoutForm from "../components/CheckoutForm";
 import { useRouter } from "next/router";
 import en from "../locales/en";
 import fr from "../locales/fr";
+import { useWindowSize } from "../utils/WindowResizeHook";
 
 function Donation() {
   const router = useRouter();
   const { locale } = router;
+
+  const [width, height] = useWindowSize();
 
   const t = locale === "en-US" ? en : fr;
   const [selected, setSelected] = useState({
@@ -52,7 +55,11 @@ function Donation() {
                   : styles.company
               }
             >
-              {t.donate.form.company}
+              {width < parseFloat("768")
+                ? locale === "en-US"
+                  ? "Company"
+                  : "l'enterprise"
+                : t.donate.form.company}
             </button>
             <button
               onClick={() => setSelected({ ...selected, type: "individual" })}
@@ -62,7 +69,11 @@ function Donation() {
                   : styles.company
               }
             >
-              {t.donate.form.individual}
+              {width < parseFloat("768")
+                ? locale === "en-US"
+                  ? "Individual"
+                  : "Individuelle"
+                : t.donate.form.individual}
             </button>
           </div>
 

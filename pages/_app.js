@@ -13,14 +13,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { locale } = router;
   return (
-    <div
-      style={{
-        maxWidth: "1200px",
-        margin: "0 auto",
-        borderLeft: "2px solid #000",
-        borderRight: "2px solid #000",
-      }}
-    >
+    <div>
       <NavBar />
       <Elements
         stripe={stripePromise}

@@ -10,7 +10,7 @@ function Event() {
   return (
     <div className={styles.container}>
       <h4 className={styles.content}>
-        Rue Ste.-Catherine O. , 11:00 , July 1st, {currentParadeYear}
+        Rue Ste.Catherine O. , 11:00 , July 1st, {currentParadeYear}
       </h4>
     </div>
   );

@@ -8,10 +8,13 @@ import { paradeYear } from "../components/untilLib/ParadeYear";
 import { useRouter } from "next/router";
 import en from "../locales/en";
 import fr from "../locales/fr";
+import { useWindowSize } from "../utils/WindowResizeHook";
 
 function Information() {
   const router = useRouter();
   const { locale } = router;
+
+  const [width, height] = useWindowSize();
 
   const t = locale === "en-US" ? en : fr;
   const [currentParadeYear, setCurrentParadeYear] = useState();
@@ -47,23 +50,26 @@ function Information() {
         src="/information2.png"
         alt={t.information.section2.title}
       />
-      <div className={styles.container}>
-        <div className={styles.background} />
-        <div className={styles.content}>
-          <h4 className={styles.title}>
-            {t.information.downloadSection.title}
-          </h4>
-          <p className={styles.subtitle}>
-            {t.information.downloadSection.subtitle}
-          </p>
-          <p className={styles.pdfTitle}>
-            {t.information.downloadSection.file}
-          </p>
-          <button className={styles.download}>
-            {t.information.downloadSection.btn}
-          </button>
+
+      {width > parseFloat("768") && (
+        <div className={styles.container}>
+          <div className={styles.background} />
+          <div className={styles.content}>
+            <h4 className={styles.title}>
+              {t.information.downloadSection.title}
+            </h4>
+            <p className={styles.subtitle}>
+              {t.information.downloadSection.subtitle}
+            </p>
+            <p className={styles.pdfTitle}>
+              {t.information.downloadSection.file}
+            </p>
+            <button className={styles.download}>
+              {t.information.downloadSection.btn}
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

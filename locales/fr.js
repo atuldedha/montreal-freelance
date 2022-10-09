@@ -135,25 +135,28 @@ export default {
 
   donate: {
     title: "Faire un don",
-    subtitle: "Faites un don avec nous",
+    subtitle: "Dons du défilé",
     form: {
-      title1: "Faire un don pour Montréal ",
+      title1: "Faire un don pour le défilé de la ",
       title2: "Fête du Canada ",
-      title3: "Défilé",
+      title3: "à Montréal",
       subtitle:
-        "Veuillez nous dire à propos de vous ? Êtes-vous une entreprise ou une personne individuelle",
+        "Parlez-nous de vous, êtes-vous une entreprise ou un particulier?",
       company: "Entreprise",
       individual: "Personne Individuelle",
       companyNote:
-        "Si vous faites un don de 100$ ou plus, vous pouvez télécharger votre logo d’entreprise après le don, qui sera affiché dans la section des commanditaires",
+        "Si vous faites un don de 100 $ ou plus, vous pouvez télécharger le logo de votre entreprise pour qu'il apparaisse dans la section des sponsors",
       name: "Nom sur la carte",
       company: "Nom de l'entreprise",
       email: "Courriel",
       address: "Adresse",
       city: "Ville",
+      // province needs to be added
+      province: "Province/État",
+       // Province was added
       zip: "Code Postal",
-      anon: "Est-ce anonyme ?",
-      custom: "Personnalisé",
+      anon: "Rendre le don anonyme?",
+      custom: "Autre",
       cardInformation: "Information de la carte",
       cardNumber: "Numéro de la carte",
       btn: "Faire un don",

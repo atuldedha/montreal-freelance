@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -8,12 +8,16 @@ import { useRouter } from "next/router";
 import styles from "../styles/Checkout.module.css";
 import en from "../locales/en";
 import fr from "../locales/fr";
+import { useWindowSize } from "../utils/WindowResizeHook";
 
 const CheckoutForm = ({ price, selected, setSelected }) => {
   const router = useRouter();
   const { locale } = router;
 
-  const t = locale === "en-US" ? en : fr;
+  const [width, height] = useWindowSize();
+
+  // const t = locale === "en-US" ? en : fr;
+  const t = locale === "fr" ? fr : en;
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
 
@@ -31,10 +35,11 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
   const elements = useElements();
   const [value, setValue] = useState(null);
 
+  const catpchaRef = useRef(null);
+
   function onChange(value) {
     setValue(value);
   }
-
   const values = [
     {
       id: 1,
@@ -293,7 +298,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
                 type="button"
                 key={value.id}
                 style={{
-                  minWidth: value.id === 6 ? "120px" : "70px",
+                  minWidth: value.id === 6 ? "62px" : "32px",
                 }}
                 onClick={() => {
                   setSelected({
@@ -306,7 +311,11 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
                   selected.id === value.id ? styles.valueSelected : styles.value
                 }
               >
-                {value.amount === 0 ? "Custom" : value.amount + " $ CAD"}
+                {value.amount === 0
+                  ? "Custom"
+                  : width < parseFloat("768")
+                  ? value.amount
+                  : value.amount + " $ CAD"}
               </button>
             ))}
           </div>
@@ -318,6 +327,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
             />
           </div>
           {checkoutError && <p className="">{checkoutError}</p>}
+
           <div
             style={{
               marginTop: "20px",
@@ -326,6 +336,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
             <ReCAPTCHA
               sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
               onChange={onChange}
+              size={width < parseFloat("380") ? "compact" : "normal"}
             />
           </div>
           <button

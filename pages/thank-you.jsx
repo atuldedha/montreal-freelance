@@ -7,10 +7,13 @@ import Sponsors from "../components/Sponsors";
 import { useRouter } from "next/router";
 import en from "../locales/en";
 import fr from "../locales/fr";
+import { useWindowSize } from "../utils/WindowResizeHook";
 
 function Successful() {
   const router = useRouter();
   const { locale } = router;
+
+  const [width, height] = useWindowSize();
 
   const t = locale === "en-US" ? en : fr;
   return (
@@ -31,8 +34,8 @@ function Successful() {
           <p className={styles.subHeading}>{t.thankYou.title}</p>
           <div className={styles.icon}>
             <svg
-              width="94"
-              height="94"
+              width={width >= parseFloat("768") ? "94" : "61"}
+              height={width >= parseFloat("768") ? "94" : "61"}
               viewBox="0 0 94 94"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

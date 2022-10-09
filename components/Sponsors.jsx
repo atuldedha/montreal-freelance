@@ -10,30 +10,22 @@ function Sponsors() {
   const router = useRouter();
   const { locale } = router;
 
-  const t = locale === "en-US" ? en : fr;
+  // const t = locale === "en-US" ? en : fr;
+  const t = locale === "fr" ? fr : en;
+
   return (
     <div className={styles.container}>
       <h4 className={styles.sponsorHeading}>Sponsors</h4>
       <div className={styles.imageWrapper}>
-        <div>
-          {locale === "en-US" ? (
-            <Image
-              src="/canada.svg"
-              width={419}
-              height={42}
-              alt="canada logo"
-            />
-          ) : (
-            <Image
-              src="/fr-montreal.png"
-              width={419}
-              height={42}
-              alt="canada logo"
-            />
-          )}
+        <div className={styles.canadaImage}>
+          <Image
+            src="/govtcanada.png"
+            width={419}
+            height={42}
+            alt="gov canada logo"
+          />
         </div>
-        <div>
-          {" "}
+        <div className={styles.montrealImage}>
           <Image
             src="/montreal_logo.svg"
             width={204}

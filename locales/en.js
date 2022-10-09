@@ -73,7 +73,7 @@ export default {
     subtitle: "A special opportunity awaits you",
     section1: {
       title:
-        "Are you interested in strengthening your leadership skills, building new Friendships or simply haing fun while serving your community and country?",
+        "Are you interested in strengthening your leadership skills, building new Friendships or simply having fun while serving your community and country?",
       subtitle:
         "We aim to incorporate “your” needs to help make the parade a success",
     },
@@ -85,7 +85,7 @@ export default {
         "Parade Line Controller",
       ],
       text: "To assist the “Supervising Parade Line Controller” to ensure that the parade moves at a good pace and helps avoid gaps between entries.",
-      note: "There are 2 Parade Line Controllers per section and a training session is given each june",
+      note: "There are 2 Parade Line Controllers per section and a training session is given each June",
       btn: "Register as Volunteer",
     },
     section3: {
@@ -107,7 +107,7 @@ export default {
   // CONTACT PAGE CONTENT STARTS HERE
   contact: {
     title: "Contact",
-    subtitle: "If you want to know anything just contact us",
+    subtitle: "If need more info Contact Us",
     form: {
       heading: "For detailed Information Fill out the form",
       name: "Full Name",
@@ -131,25 +131,27 @@ export default {
   // DONATE PAGE CONTENT STARTS HERE
   donate: {
     title: "Donate",
-    subtitle: "Donate with us",
+    subtitle: "Parade Donations",
     form: {
-      title1: "Donate for Montreal ",
+      title1: "Donate for the Montreal ",
       title2: "Canada Day ",
       title3: "Parade",
-      subtitle:
-        "Please Tell Us About yourself ? Are you a company or individual",
+      subtitle: "Tell us about yourself, are you a business or an individual?",
       company: "Company",
       individual: "Individual",
       companyNote:
-        "If you donate 100$ then you can upload your company logo after donation that will be shown in sponsors section",
+        "If you donate 100$ or more, then you can upload your company logo to be shown in sponsors section",
       name: "Name on Card",
       company: "Company Name",
       email: "Email",
       address: "Address",
       city: "City",
+      // Province needs to be added
+      province: "Province/State",
+      // Province was added
       zip: "Zip Code",
-      anon: "Is Anonymous ?",
-      custom: "Custom",
+      anon: "Make the donation anonymous?",
+      custom: "Other",
       cardInformation: "Card Information",
       cardNumber: "Card Number",
       btn: "Donate",

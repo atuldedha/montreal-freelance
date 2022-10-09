@@ -30,20 +30,66 @@
 }
 
 .content {
-  max-width: 31.25em;
-  padding: 5em 1.25em 5em 5em;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2em;
+  text-align: center;
+  z-index: 10;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
 }
 
 .content h1 {
-  font-size: var(--font-xxl);
-  font-weight: var(--font-weight-bold);
-  font-family: var(--font-inter);
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--white-1);
 }
 
-.content p {
-  font-size: var(--font-lg);
-  font-weight: var(--font-weight-medium);
-}
+  .content p {
+    color: var(--white-1);
+    font-size: var(--font-ml);
+    font-weight: 500;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .content h1{
+      font-size: var(--font-xxl);
+      font-weight: var(--font-weight-bold);
+      font-family: var(--font-inter);
+      color: var(--dark-gray);
+    }
+
+    .content p {
+      font-size: var(--font-lg);
+      font-weight: var(--font-weight-medium);
+      color: var(--dark-gray);
+    }
+    
+  }
+
+  @media screen and (min-width:768px) and (max-width: 1200px) {
+    .content h1 {
+      font-size: var(--font-xxl);
+      font-weight: 500;
+      color: var(--dark-gray);
+    }
+
+    .content p {
+      font-size: var(--font-medium);
+      font-weight: 400;
+      color: var(--dark-gray);
+    }
+    
+  }
+
+  .svgWrapper {
+    width: 90%;
+    height: 1px;
+  }
+
 
 .button {
   background-color: var(--primary-100);
@@ -53,7 +99,7 @@
   font-weight: 500;
   border-radius: 3.125em;
   padding: 0.625em 1.25em;
-  font-size: 0.875rem;
+  font-size: var(--font-xs);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -62,13 +108,32 @@
 }
 
 .imageContainer {
-  min-width: 60%;
+  width: 100%;
   position: relative;
 }
 
-.imageContainer img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  aspect-ratio: 1/1;
+@media screen and (min-width: 340px) {
+  .imageContainer {
+    height: 21.56em;
+  }
+
+  .content {
+    height: 21.56em;
+  }
+  
+}
+
+@media screen and (min-width: 768px) {
+  .imageContainer {
+    width: 50%;
+    height:25.625em;
+  }
+
+  .content {
+    position: relative;
+    width: 50%;
+    background: none;
+    text-align: start;
+    height: 25.625em;
+  }
 }

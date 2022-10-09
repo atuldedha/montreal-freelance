@@ -44,33 +44,34 @@ function Group() {
               </div>
             ))
           }
+          <div className={styles.paraContainer}>
+            <p className={styles.simpleParagraph}>{t.group.section2.text}</p>
+            <p className={styles.simpleParagraphNote}>
+              <span>Note:</span>
+              {t.group.section2.note}
+            </p>
 
-          <p className={styles.simpleParagraph}>{t.group.section2.text}</p>
-          <p className={styles.simpleParagraph}>
-            {" "}
-            <span style={{ fontWeight: 500 }}>Note:</span>{" "}
-            {t.group.section2.note}
-          </p>
-
-          <button className={styles.buttonVoluntier}>
-            {t.group.section2.btn}
-          </button>
+            <button className={styles.buttonVoluntier}>
+              {t.group.section2.btn}
+            </button>
+          </div>
         </div>
       </div>
 
       <div className={styles.background}>
         <div className={styles.container}>
           <p className={styles.opportunityGroups}>{t.group.section3.title}</p>
-          <div className={styles.listContainer}>
+          <div className={styles.participantListContainer}>
             {
               // map through the list of opportunities
               t.group.section3.options.map((option, index) => (
-                <div key={index} className={styles.list}>
+                <div key={index} className={styles.participantList}>
                   <span className={styles.listStyleWhite}></span>
                   <p
                     style={{
                       fontWeight: "500",
                     }}
+                    className={styles.listItem}
                   >
                     {option}
                   </p>

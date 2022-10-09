@@ -2,23 +2,31 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styles from "../styles/Hero.module.css";
+import { useWindowSize } from "../utils/WindowResizeHook";
 
 function Hero({ title, subtitle, image, alt, btn, btnText }) {
+  const [width, height] = useWindowSize();
   return (
     <div className={styles.container}>
       {/* content  */}
       <div className={styles.content}>
         <h1>{title}</h1>
-        <svg
-          width="361"
-          height="2"
-          viewBox="0 0 361 2"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line y1="1" x2="361" y2="1" stroke="black" strokeWidth="2" />
-          <line y1="1" x2="84" y2="1" stroke="#C70000" strokeWidth="2" />
-        </svg>
+        <div className={styles.svgWrapper}>
+          <svg
+            viewBox="0 0 361 2"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              y1="1"
+              x2="361"
+              y2="1"
+              stroke={width < parseFloat("768") ? "white" : "black"}
+              strokeWidth="2"
+            />
+            <line y1="1" x2="84" y2="1" stroke="#C70000" strokeWidth="2" />
+          </svg>
+        </div>
 
         <p>{subtitle}</p>
         {btn && (

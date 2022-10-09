@@ -9,13 +9,28 @@
 
 .content {
   font-family: var(--font-inter);
-  font-weight: 600;
-  font-size: var(--font-xxl);
   color: var(--nav-font);
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   height: 100%;
   width: 100%;
   margin: 0;
+  font-size: var(--font-normal);
+  font-weight: 600;
+}
+
+@media screen and (min-width: 1200px) {
+  .content{
+    font-weight: 700;
+    font-size: var(--font-xxl);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .content{
+    font-weight: 700;
+    font-size: var(--font-lg);
+  }
 }

@@ -10,7 +10,8 @@ function Footer() {
   const router = useRouter();
   const { locale } = router;
 
-  const t = locale === "en-US" ? en : fr;
+  // const t = locale === "en-US" ? en : fr;
+  const t = locale === "fr" ? fr : en;
 
   const [currentParadeYear, setCurrentParadeYear] = useState();
   useEffect(() => {
@@ -116,21 +117,21 @@ function Footer() {
               <path
                 d="M22.39 0H6.48C2.90119 0 0 2.90119 0 6.48V22.39C0 25.9688 2.90119 28.87 6.48 28.87H22.39C25.9688 28.87 28.87 25.9688 28.87 22.39V6.48C28.87 2.90119 25.9688 0 22.39 0Z"
                 fill="#C70000"
-                fill-opacity="0.8"
+                fillOpacity="0.8"
               />
               <path
                 d="M22.6441 9.8784C22.5523 9.51002 22.3654 9.1725 22.1022 8.89993C21.839 8.62735 21.5088 8.42938 21.1451 8.326C19.8161 8 14.5 8 14.5 8C14.5 8 9.18391 8 7.85489 8.35705C7.49115 8.46042 7.161 8.6584 6.8978 8.93098C6.6346 9.20355 6.44766 9.54107 6.35588 9.90944C6.11265 11.2643 5.99367 12.6388 6.00044 14.0155C5.99177 15.4026 6.11076 16.7876 6.35588 18.1527C6.45707 18.5095 6.64819 18.8342 6.91078 19.0953C7.17336 19.3564 7.49854 19.545 7.85489 19.6429C9.18391 20 14.5 20 14.5 20C14.5 20 19.8161 20 21.1451 19.6429C21.5088 19.5396 21.839 19.3416 22.1022 19.069C22.3654 18.7964 22.5523 18.4589 22.6441 18.0906C22.8854 16.7459 23.0044 15.3819 22.9996 14.0155C23.0082 12.6284 22.8892 11.2435 22.6441 9.8784Z"
                 stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M13 17L17 14L13 11V17Z"
                 stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </a>
