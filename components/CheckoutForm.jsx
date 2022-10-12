@@ -76,8 +76,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
 
   const handleFormSubmit = async (ev) => {
     ev.preventDefault();
-    const regex = /^\d{5}-\d{4}|\d{5}|[A-Z]\d[A-Z] \d[A-Z]\d$/;
-    if (!regex.test(postalCode)) {
+    if (!postalFilter(postalCode)) {
       return setCheckoutError("Invalid Postal Code");
     }
     if (!stripe || !elements) {
@@ -113,8 +112,35 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
       };
     }
 
-    setProcessingTo(true);
+    function postalFilter(postalCode) {
+      if (!postalCode) {
+        return null;
+      }
 
+      postalCode = postalCode.toString().trim();
+
+      var us = new RegExp("^\\d{5}(-{0,1}\\d{4})?$");
+      var ca = new RegExp(
+        /([ABCEGHJKLMNPRSTVXY]\d)([ABCEGHJKLMNPRSTVWXYZ]\d){2}/i
+      );
+      if (country === "US") {
+        if (us.test(postalCode.toString())) {
+          return true;
+        } else {
+          return false;
+        }
+      } else if (country === "CA") {
+        if (ca.test(postalCode.toString().replace(/\W+/g, ""))) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return true;
+      }
+    }
+
+    setProcessingTo(true);
     const cardElement = elements.getElement("card");
 
     try {
@@ -254,9 +280,14 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
             countryValueType="short"
             defaultOptionLabel={t.state.title}
             value={regionValue}
-            onChange={(e) => {
-              setRegionValue(e);
+            blacklist={{
+              US: [
+                "Armed Forces Americas",
+                "Armed Forces Europe, Canada, Africa and Middle East",
+                "Armed Forces Pacific",
+              ],
             }}
+            onChange={(val) => setRegionValue(val)}
           />
           <CountryDropdown
             value={country}
