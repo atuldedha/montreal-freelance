@@ -2,7 +2,7 @@ import { createRef, useEffect, useRef, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
-import { CountryDropdown } from "react-country-region-selector";
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import { useRouter } from "next/router";
 
 import styles from "../styles/Checkout.module.css";
@@ -35,7 +35,7 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
   const elements = useElements();
   const [value, setValue] = useState(null);
 
-  const catpchaRef = useRef(null);
+  const [regionValue, setRegionValue] = useState("");
 
   function onChange(value) {
     setValue(value);
@@ -238,12 +238,6 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
             name="address"
             placeholder={t.donate.form.address}
           />
-          <CountryDropdown
-            value={country}
-            classes={styles.countryDropdown}
-            valueType="short"
-            onChange={(val) => setCountry(val)}
-          />
           <input
             onChange={(e) => {
               setCity(e.target.value);
@@ -253,6 +247,22 @@ const CheckoutForm = ({ price, selected, setSelected }) => {
             required={isAnonymous ? false : true}
             name="city"
             placeholder={t.donate.form.city}
+          />
+          <RegionDropdown
+            country={country}
+            classes={styles.countryDropdown}
+            countryValueType="short"
+            defaultOptionLabel={t.state.title}
+            value={regionValue}
+            onChange={(e) => {
+              setRegionValue(e);
+            }}
+          />
+          <CountryDropdown
+            value={country}
+            classes={styles.countryDropdown}
+            valueType="short"
+            onChange={(val) => setCountry(val)}
           />
           <input
             onChange={(e) => {

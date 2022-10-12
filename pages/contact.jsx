@@ -9,6 +9,7 @@ import en from "../locales/en";
 import fr from "../locales/fr";
 import Head from "next/head";
 import { useWindowSize } from "../utils/WindowResizeHook";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
   const router = useRouter();
@@ -24,6 +25,39 @@ function Contact() {
   function onChange(value) {
     setValue(value);
   }
+
+  //templateid template_83il5mb
+  //serviceid service_mulju2v
+  //public key 7rd1LY-6t60I0sXQl
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    const sendObject = {
+      name: name,
+      email: email,
+      message: message,
+    };
+
+    emailjs
+      .send(
+        "service_ndv7tu4",
+        "template_cjbd9xu",
+        sendObject,
+        "xtJDzyKlv0BFpzkQE"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setName("");
+          setEmail("");
+          setMessage("");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <div>
       <Head>
@@ -86,6 +120,7 @@ function Contact() {
             <button
               disabled={!name || !email || !message || !value}
               className={styles.submitBtn}
+              onClick={sendEmail}
             >
               {t.contact.form.btn}
             </button>
@@ -95,7 +130,20 @@ function Contact() {
           {t.contact.options.map((item, index) => (
             <div key={index}>
               <h4 className={styles.contactHeading}>{item.title}</h4>
-              <p className={styles.contactText}>{item.description}</p>
+              <p className={styles.contactText}>
+                {item.description}
+                <button
+                  className={styles.mailtoButton}
+                  onClick={() =>
+                    (window.location =
+                      index === 1
+                        ? "mailto:kully2005@yahoo.ca"
+                        : "mailto:MontrealCanadaDayParade@gmail.com")
+                  }
+                >
+                  Email
+                </button>
+              </p>
             </div>
           ))}
         </div>

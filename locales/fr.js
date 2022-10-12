@@ -122,12 +122,12 @@ export default {
       {
         title: "Partenaire",
         description:
-          "Souhaitez-vous offrir vos services au public en devenant un partenaire? Contactez l’Organisateur Principal, Nicholas Cowen, par courriel.",
+          "Souhaitez-vous offrir vos services au public en devenant un partenaire? Contactez l’Organisateur Principal, Nicholas Cowen. ",
       },
       {
         title: "Presse",
         description:
-          "Faites-vous partie de la presse et souhaitez-vous recevoir plus d’informations concernant l’événement? Contactez la directrice générale, Caroline Polcsak, par courriel.",
+          "Faites-vous partie de la presse et souhaitez-vous recevoir plus d’informations concernant l’événement? Contactez la directrice générale, Caroline Polcsak. ",
       },
     ],
   },
@@ -153,7 +153,7 @@ export default {
       city: "Ville",
       // province needs to be added
       province: "Province/État",
-       // Province was added
+      // Province was added
       zip: "Code Postal",
       anon: "Rendre le don anonyme?",
       custom: "Autre",
@@ -172,5 +172,8 @@ export default {
       dimensions: "Dimension",
       btn: "Sauvegarder",
     },
+  },
+  state: {
+    title: "Etat / Province",
   },
 };

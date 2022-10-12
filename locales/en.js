@@ -119,12 +119,12 @@ export default {
       {
         title: "Partner",
         description:
-          "You would like to become a partner? Contact the Main Organizer, Nicholas Cowen, by e-mail . I'll put a specific e-mail",
+          "You would like to become a partner? Contact the Main Organizer, Nicholas Cowen, by ",
       },
       {
         title: "Press",
         description:
-          "Are you part of the press and want additional information about the event? Contact managing director, Caroline Polcsak, by e-mail. I'll put a specific e-mail",
+          "Are you part of the press and want additional information about the event? Contact managing director, Caroline Polcsak, by ",
       },
     ],
   },
@@ -166,5 +166,8 @@ export default {
       dimensions: "Dimension",
       btn: "Save",
     },
+  },
+  state: {
+    title: "State / Province",
   },
 };
